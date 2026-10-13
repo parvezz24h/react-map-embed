@@ -1,0 +1,108 @@
+{
+  "name": "react-map-embed",
+  "version": "0.1.0",
+  "description": "Embed interactive maps in React and Next.js without a Google Maps API key. Leaflet + OpenStreetMap by default, with an optional Google Maps Embed provider.",
+  "license": "MIT",
+  "type": "module",
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/cjs/index.d.ts",
+        "default": "./dist/cjs/index.js"
+      }
+    },
+    "./core": {
+      "import": {
+        "types": "./dist/core.d.ts",
+        "default": "./dist/core.js"
+      },
+      "require": {
+        "types": "./dist/cjs/core.d.ts",
+        "default": "./dist/cjs/core.js"
+      }
+    },
+    "./google": {
+      "import": {
+        "types": "./dist/google.d.ts",
+        "default": "./dist/google.js"
+      },
+      "require": {
+        "types": "./dist/cjs/google.d.ts",
+        "default": "./dist/cjs/google.js"
+      }
+    },
+    "./styles.css": "./dist/styles.css",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "react",
+    "nextjs",
+    "map",
+    "maps",
+    "embed",
+    "leaflet",
+    "openstreetmap",
+    "google-maps",
+    "geocoding"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "node scripts/clean.mjs && vite build && tsc -p tsconfig.build.json && node scripts/postbuild.mjs",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "verify:package": "node scripts/verify-package.mjs && publint && attw --pack . --profile node16 --exclude-entrypoints styles.css",
+    "prepublishOnly": "npm run lint && npm run typecheck && npm test && npm run build && npm run verify:package"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "react-dom": ">=18"
+  },
+  "dependencies": {
+    "leaflet": "^1.9.4"
+  },
+  "devDependencies": {
+    "@arethetypeswrong/cli": "^0.18.5",
+    "@eslint/js": "^10.0.1",
+    "@testing-library/dom": "^10.4.2",
+    "@testing-library/jest-dom": "^7.0.1",
+    "@testing-library/react": "^16.3.3",
+    "@types/leaflet": "^1.9.22",
+    "@types/node": "^26.6.5",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.2",
+    "eslint": "^10.12.0",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "globals": "^17.13.0",
+    "jsdom": "^29.1.1",
+    "prettier": "^3.9.10",
+    "publint": "^0.3.25",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "typescript": "~6.0.3",
+    "typescript-eslint": "^8.71.2",
+    "vite": "^8.3.4",
+    "vitest": "^5.0.4"
+  }
+}

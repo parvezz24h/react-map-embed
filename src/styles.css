@@ -1,0 +1,77 @@
+@import "leaflet/dist/leaflet.css";
+
+.rme-root {
+  --rme-marker-color: #2563eb;
+  --rme-status-bg: #eef1f4;
+  --rme-status-fg: #4b5563;
+  --rme-error-bg: #fdf2f2;
+  --rme-error-fg: #9b1c1c;
+  isolation: isolate;
+  border-radius: inherit;
+}
+
+@media (prefers-color-scheme: dark) {
+  .rme-root {
+    --rme-status-bg: #1f2937;
+    --rme-status-fg: #d1d5db;
+    --rme-error-bg: #3b1d1d;
+    --rme-error-fg: #fca5a5;
+  }
+}
+
+.rme-status {
+  font:
+    14px/1.4 system-ui,
+    -apple-system,
+    "Segoe UI",
+    Roboto,
+    sans-serif;
+}
+
+.rme-loading {
+  background: var(--rme-status-bg);
+  color: var(--rme-status-fg);
+}
+
+.rme-error {
+  background: var(--rme-error-bg);
+  color: var(--rme-error-fg);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .rme-loading {
+    background-image: linear-gradient(
+      100deg,
+      transparent 20%,
+      rgba(255, 255, 255, 0.35) 50%,
+      transparent 80%
+    );
+    background-size: 200% 100%;
+    animation: rme-shimmer 1.4s ease-in-out infinite;
+  }
+}
+
+@keyframes rme-shimmer {
+  from {
+    background-position: 150% 0;
+  }
+  to {
+    background-position: -50% 0;
+  }
+}
+
+.rme-marker {
+  background: none;
+  border: none;
+}
+
+.rme-marker svg {
+  display: block;
+  filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.35));
+}
+
+.rme-map:focus-visible,
+.rme-marker:focus-visible {
+  outline: 3px solid var(--rme-marker-color);
+  outline-offset: -3px;
+}
