@@ -3,6 +3,15 @@
   "version": "0.1.0",
   "description": "Embed interactive maps in React and Next.js without a Google Maps API key. Leaflet + OpenStreetMap by default, with an optional Google Maps Embed provider.",
   "license": "MIT",
+  "author": "Parvez",
+  "homepage": "https://github.com/parvezz24h/react-map-embed#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/parvezz24h/react-map-embed.git"
+  },
+  "bugs": {
+    "url": "https://github.com/parvezz24h/react-map-embed/issues"
+  },
   "type": "module",
   "sideEffects": [
     "**/*.css"

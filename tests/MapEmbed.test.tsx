@@ -50,13 +50,14 @@ describe("MapEmbed", () => {
       { height: "50vh", width: "80%" },
       { height: "50vh", width: "80%" },
     ],
-  ])("applies size props %j", (props, expected) => {
-    render(<MapEmbed center={dhaka} {...props} />);
+  ])("applies size props %j", async (props, expected) => {
+    const { container } = render(<MapEmbed center={dhaka} {...props} />);
     expect(screen.getByRole("region")).toHaveStyle(expected);
+    await waitForMap(container);
   });
 
-  it("merges className and style without letting style override the size props", () => {
-    render(
+  it("merges className and style without letting style override the size props", async () => {
+    const { container } = render(
       <MapEmbed
         center={dhaka}
         className="my-map"
@@ -67,6 +68,7 @@ describe("MapEmbed", () => {
     const region = screen.getByRole("region");
     expect(region).toHaveClass("rme-root", "my-map");
     expect(region).toHaveStyle({ borderRadius: "8px", height: "320px" });
+    await waitForMap(container);
   });
 
   it("hides the marker when showMarker is false", async () => {

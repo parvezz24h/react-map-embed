@@ -1,5 +1,9 @@
 # react-map-embed
 
+[![CI](https://github.com/parvezz24h/react-map-embed/actions/workflows/ci.yml/badge.svg)](https://github.com/parvezz24h/react-map-embed/actions/workflows/ci.yml)
+[![npm](https://img.shields.io/npm/v/react-map-embed)](https://www.npmjs.com/package/react-map-embed)
+[![license](https://img.shields.io/npm/l/react-map-embed)](LICENSE)
+
 Interactive maps for React and Next.js **without a Google Maps API key**.
 
 `react-map-embed` renders maps with [Leaflet](https://leafletjs.com) and OpenStreetMap tiles by default. A Google Maps provider is available as a separate, optional entry point for teams that already have a Maps Embed API key.
